@@ -14,6 +14,13 @@ export class SocketWebService extends Socket {
           nameRoom: 'test'
         }
       }
-    })
+    });
+    this.connectToServer();
+  }
+
+  connectToServer() {
+    if (!this.ioSocket.connected) {
+      this.ioSocket.connect();
+    }
   }
 }
