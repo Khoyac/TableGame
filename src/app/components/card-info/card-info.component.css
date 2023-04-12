@@ -1,0 +1,16 @@
+.cardView {
+  position: relative;
+  width: 280px;
+  height: 390px;
+  margin: 0 auto;
+  background: #000 no-repeat;
+  background-size: contain;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: 0.3s;
+}

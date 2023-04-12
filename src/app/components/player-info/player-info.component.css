@@ -1,0 +1,18 @@
+.playerInfo {
+  width: 100%;
+  background-color:#2887da;
+  padding: 1px;
+}
+
+.playerInfo > * {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.playerName {
+  width: 20%;
+}
+
+img {
+  height: 15px;
+}
