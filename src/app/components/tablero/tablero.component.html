@@ -1,0 +1,17 @@
+<div class="tablero ">
+  <div class="playerZone pl1">
+    <app-player-info [player]="players[0]"></app-player-info>
+    <app-card
+      *ngFor="let card of this.players[0].inGame; let i = index" [attr.data-index]="i"
+      [card]="card"></app-card>
+  </div>
+  <div class="playerZone pl2">
+    <app-player-info [player]="players[1]"></app-player-info>
+  </div>
+  <div class="playerZone pl3">
+    <app-player-info [player]="players[2]"></app-player-info>
+  </div>
+  <div class="playerZone pl4">
+    <app-player-info [player]="players[3]"></app-player-info>
+  </div>
+</div>

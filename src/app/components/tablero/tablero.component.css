@@ -1,0 +1,22 @@
+.tablero {
+  background: black;
+  border: 1px solid black;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+.playerZone {
+  background: #2887da;
+}
+.pl1,   .pl2, .pl3, .pl4 {
+  background-color: black;
+  border: 1px solid white;
+}
+.pl1 { grid-area: 1 / 1 / 2 / 2; }
+.pl2 { grid-area: 1 / 2 / 2 / 3; }
+.pl3 { grid-area: 2 / 2 / 3 / 3; }
+.pl4 { grid-area: 2 / 1 / 3 / 2; }
