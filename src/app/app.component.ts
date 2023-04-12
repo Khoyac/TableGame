@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Player} from "../shared/classes/player";
 import {Card} from "../shared/classes/card";
 import {SocketWebService} from "../Services/socket-web.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -22,13 +23,19 @@ export class AppComponent {
 
   players = [this.p1, this.p2, this.p3, this.p4];
 
-  constructor(private socketWebService: SocketWebService) { }
+  subscription!: Subscription;
 
-  ngOnInit(): void {
-    // Escucha el evento 'mensaje' del servidor
+  constructor(private socketWebService: SocketWebService) {}
+
+  ngOnInit() {
     this.socketWebService.on('mensaje', (data: any) => {
       console.log(`Recibido mensaje del servidor: ${data}`);
     });
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   cards = [
