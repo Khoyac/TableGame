@@ -8,11 +8,14 @@ import {Card} from "../../../shared/classes/card";
   styleUrls: ['./card-info.component.css']
 })
 export class CardInfoComponent {
-  constructor(private vistaCartaAmpliada: VistaCartaAmpliadaService) {
-  }
   carta!: Card;
+  constructor(private vistaCartaAmpliada: VistaCartaAmpliadaService) {
+    //this.carta.image = 'img/back-card.jpg';
+  }
+
 
   ngOnInit() {
+
     this.vistaCartaAmpliada.change.subscribe(card => {
       this.carta = card;
     });

@@ -1,20 +1,23 @@
-import {Component, HostListener, Input} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Card} from "../../../shared/classes/card";
 import {VistaCartaAmpliadaService} from "../../../Services/vista-carta-ampliada.service";
 import {SocketWebService} from "../../../Services/socket-web.service";
+import {CdkDragEnd, CdkDragMove} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() card!: Card;
   currentCard: Card | undefined;
   opContadores: boolean = false;
   rotate: any;
-  x = 0;
-  y = 0;
+  @Input() value: string | undefined;
+  @Input() suit: string | undefined;
+  @Input() x: number | undefined;
+  @Input() y: number | undefined;
 
   constructor(private vistaCartaAmpliada: VistaCartaAmpliadaService,
               private socketWebService: SocketWebService) {
@@ -27,24 +30,22 @@ export class CardComponent {
   }
 
   ngOnInit(): void {
-    // Escuchar el evento de movimiento de la tarjeta
-    this.socketWebService.fromEvent('card_moved').subscribe((data: any) => {
-      console.log(`Card moved message received: ${JSON.stringify(data)}`);
-      // Actualiza la posición de la tarjeta
-      this.x = data.x;
-      this.y = data.y;
+    // Suscríbete al evento 'card_moved'
+    this.socketWebService.on('card_moved', (x: number, y: number) => {
+      // Realiza alguna acción con los datos recibidos
+      console.log('La carta se movió a las coordenadas x=' + x + ', y=' + y);
     });
+
   }
 
-  onMove(event: MouseEvent) {
-    this.x = event.clientX;
-    this.y = event.clientY;
-    console.log(`Card moved message received: ${this.x}`);
-    // Enviar la posición actual a través del socket
-    this.socketWebService.emit('move_card', { x: this.x, y: this.y });
+  drop(event: CdkDragEnd): void {
+    this.x = event.dropPoint.x;
+    this.y = event.dropPoint.y;
+    // Llamada al método emit para enviar el evento card_moved al servidor
+    this.socketWebService.emit('move_card', {x: this.x, y: this.y});
   }
 
-  vistaAmpliada (carta:Card) {
+  vistaAmpliada(carta: Card) {
     this.vistaCartaAmpliada.mostrarCarta(carta);
   }
 

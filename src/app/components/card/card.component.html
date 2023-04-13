@@ -2,6 +2,7 @@
      class="card" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"
      (mouseover)="vistaAmpliada(card)"
      (auxclick)="abrirMenuContadores()"
+     (cdkDragEnded)="drop($event)"
      (dblclick)="tapCarta()">
   <div class="contadores" [ngStyle]="{ 'display': opContadores? 'block':'none' }">
 
