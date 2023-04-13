@@ -1,8 +1,10 @@
 <div cdkDrag cdkDragBoundary=".tablero"
+     [style.left.px]="xPos" [style.top.px]="yPos"
      class="card" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"
      (mouseover)="vistaAmpliada(card)"
      (auxclick)="abrirMenuContadores()"
-     (cdkDragEnded)="drop($event)"
+     (cdkDragStarted)="drag($event)"
+     (cdkDragEnded)="drop($event, card)"
      (dblclick)="tapCarta()">
   <div class="contadores" [ngStyle]="{ 'display': opContadores? 'block':'none' }">
 

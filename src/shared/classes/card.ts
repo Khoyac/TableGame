@@ -2,6 +2,7 @@ export class Card {
   public manaSeparated: any;
 
   constructor(
+    public id: number,
     public name: string,
     public image: string,
     public lan: string,
@@ -10,6 +11,9 @@ export class Card {
     public manaCost: string,
     public set: string,
     public stock: number,
+
+    public yPos: number,
+    public xPos: number
   ) {
     this.dibujarMana(manaCost)
   }

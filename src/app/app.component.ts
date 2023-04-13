@@ -12,9 +12,9 @@ import {Subscription} from "rxjs";
 export class AppComponent {
   title = 'TableGame';
 
-  card1 = new Card("Regal Bloodlord", "https://cards.scryfall.io/large/front/8/8/887efa4e-f713-4165-a7e1-b0f00ac81784.jpg?1541007928", "en", false, "n", "", "",1);
-  card2 = new Card("Regal Bloodlord", "https://cards.scryfall.io/large/front/d/6/d6862005-32d1-473e-a28b-5dfc4b7782cd.jpg?1562383050", "en", false, "n", "", "",1);
-  card3 = new Card("Regal Bloodlord", "https://cards.scryfall.io/large/front/f/e/fe0c708d-771f-4356-8525-932d2690989b.jpg?1605329417", "en", false, "n", "", "",1);
+  card1 = new Card(1,"Regal Bloodlord", "https://cards.scryfall.io/large/front/8/8/887efa4e-f713-4165-a7e1-b0f00ac81784.jpg?1541007928", "en", false, "n", "", "",1, 0, 0);
+  card2 = new Card(2,"Regal Bloodlord", "https://cards.scryfall.io/large/front/d/6/d6862005-32d1-473e-a28b-5dfc4b7782cd.jpg?1562383050", "en", false, "n", "", "",1, 0, 0);
+  card3 = new Card(3,"Regal Bloodlord", "https://cards.scryfall.io/large/front/f/e/fe0c708d-771f-4356-8525-932d2690989b.jpg?1605329417", "en", false, "n", "", "",1, 0, 0);
 
   public p1 = new Player("Khoyac", 40, 3, 0, 0, [], [], [], [], [this.card1, this.card2, this.card3])
   public p2 = new Player("Juan", 40, 0, 0, 0, [], [], [], [], [])

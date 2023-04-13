@@ -8,7 +8,19 @@ import {Card} from "../../../shared/classes/card";
   styleUrls: ['./card-info.component.css']
 })
 export class CardInfoComponent {
-  carta!: Card;
+  carta: Card = new Card(
+    -1,
+    'Unknown',
+    'assets/img/back-card.jpg',
+    'Unknown',
+    false,
+    'Unknown',
+    '{0}',
+    'Unknown',
+    0,
+    0,
+    0
+  );
   constructor(private vistaCartaAmpliada: VistaCartaAmpliadaService) {
     //this.carta.image = 'img/back-card.jpg';
   }
