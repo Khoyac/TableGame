@@ -1,7 +1,7 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {Card} from "../../../shared/classes/card";
-import {VistaCartaAmpliadaService} from "../../../Services/vista-carta-ampliada.service";
-import {SocketWebService} from "../../../Services/socket-web.service";
+import {Card} from "../../../../shared/classes/card";
+import {VistaCartaAmpliadaService} from "../../../../Services/vista-carta-ampliada.service";
+import {SocketWebService} from "../../../../Services/socket-web.service";
 import {CdkDragEnd, CdkDragMove, CdkDragStart} from "@angular/cdk/drag-drop";
 
 @Component({
@@ -51,7 +51,7 @@ export class CardComponent implements OnInit {
     document.addEventListener('mousemove', (event) => {
       const x = event.clientX;
       const y = event.clientY;
-      console.log(`Coordenadas del ratón: x=${x}, y=${y}`);
+     // console.log(`Coordenadas del ratón: x=${x}, y=${y}`);
     });
   }
 
@@ -76,6 +76,13 @@ export class CardComponent implements OnInit {
 
   drag(event: CdkDragStart) {
     console.log('s');
+  }
+
+  dragM($event: CdkDragMove<any>, card: Card) {
+    console.log($event.pointerPosition)
+    this.x = $event.pointerPosition.x;
+    this.y = $event.pointerPosition.y;
+    this.socketWebService.emit('move_card', {id: card.id, x: this.x, y: this.y});
   }
 }
 

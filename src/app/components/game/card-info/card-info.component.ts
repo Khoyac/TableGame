@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {VistaCartaAmpliadaService} from "../../../Services/vista-carta-ampliada.service";
-import {Card} from "../../../shared/classes/card";
+import {VistaCartaAmpliadaService} from "../../../../Services/vista-carta-ampliada.service";
+import {Card} from "../../../../shared/classes/card";
 
 @Component({
   selector: 'app-card-info',

@@ -5,6 +5,7 @@
      (auxclick)="abrirMenuContadores()"
      (cdkDragStarted)="drag($event)"
      (cdkDragEnded)="drop($event, card)"
+     (cdkDragMoved)="dragM($event, card)"
      (dblclick)="tapCarta()">
   <div class="contadores" [ngStyle]="{ 'display': opContadores? 'block':'none' }">
 

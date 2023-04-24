@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import {Player} from "../../../shared/classes/player";
-import {Card} from "../../../shared/classes/card";
-import {SocketWebService} from "../../../Services/socket-web.service";
+import {Player} from "../../../../shared/classes/player";
+import {Card} from "../../../../shared/classes/card";
+import {SocketWebService} from "../../../../Services/socket-web.service";
 
 @Component({
   selector: 'app-tablero',

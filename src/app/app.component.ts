@@ -38,6 +38,10 @@ export class AppComponent {
     this.subscription.unsubscribe();
   }
 
+  enviarCartasAlServidor() {
+    this.socketWebService.emit('enviar_cartas', this.cards);
+  }
+
   cards = [
     {
       "Name": "Regal Bloodlord",
